@@ -131,3 +131,5 @@ out/
 # Vite
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+vite.config.*.timestamp*
+vitest.config.*.timestamp*

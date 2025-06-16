@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./packages/marketplace-server"
+    },
+    {
+      "path": "./packages/marketplace-front"
     }
   ]
 }
