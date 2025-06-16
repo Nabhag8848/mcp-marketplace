@@ -4,9 +4,30 @@
 dist
 tmp
 out-tsc
+*.tsbuildinfo
 
 # dependencies
 node_modules
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+yarn-debug.log*
+yarn-error.log
+
+# npm
+npm-debug.log*
+npm-error.log*
+package-lock.json
 
 # IDEs and editors
 /.idea
@@ -24,22 +45,89 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# IDE - WebStorm/IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
 # misc
 /.sass-cache
 /connect.lock
 /coverage
 /libpeerconnection.log
-npm-debug.log
-yarn-error.log
 testem.log
 /typings
 
-# System Files
-.DS_Store
-Thumbs.db
+# Logs
+logs
+*.log
+lerna-debug.log*
+.pnpm-debug.log*
 
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Nx
 .nx/cache
 .nx/workspace-data
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary folders
+tmp/
+temp/
+
+# Editor directories and files
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
-.env
+
+# Build outputs
+build/
+*.tgz
+*.tar.gz
+
+# Testing
+coverage/
+.nyc_output
+.coverage
+
+# Storybook build outputs
+storybook-static/
+
+# Next.js
+.next/
+out/
+
+# Nuxt.js
+.nuxt/
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
