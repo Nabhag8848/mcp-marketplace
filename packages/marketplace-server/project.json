@@ -6,19 +6,22 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "nx:run-commands",
+      "executor": "@nx/js:tsc",
       "options": {
-        "command": "webpack-cli build",
-        "args": ["node-env=production"]
+        "outputPath": "dist/packages/marketplace-server",
+        "main": "packages/marketplace-server/src/main.ts",
+        "tsConfig": "packages/marketplace-server/tsconfig.app.json",
+        "assets": ["packages/marketplace-server/src/assets"]
       },
       "configurations": {
-        "development": {
-          "args": ["node-env=development"]
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false
         }
       }
     },
     "serve": {
-      "continuous": true,
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
@@ -28,7 +31,7 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "@mcp-marketplace/server:build:development"
+          "buildTarget": "@mcp-marketplace/server:build"
         },
         "production": {
           "buildTarget": "@mcp-marketplace/server:build:production"
