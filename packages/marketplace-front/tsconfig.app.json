@@ -13,7 +13,11 @@
     ],
     "rootDir": "src",
     "module": "esnext",
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["./src/modules/*"],
+      "~/*": ["./src/*"]
+    }
   },
   "exclude": [
     "out-tsc",
