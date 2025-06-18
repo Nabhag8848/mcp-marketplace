@@ -4,7 +4,7 @@
   "name": "mcp-marketplace",
   "buildCommand": "yarn nx build marketplace-front",
   "outputDirectory": "packages/marketplace-front/dist",
-  "installCommand": "yarn install --frozen-lockfile",
+  "installCommand": "yarn install",
   "framework": null,
   "rewrites": [
     {
