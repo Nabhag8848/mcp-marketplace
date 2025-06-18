@@ -11,6 +11,19 @@
     },
     "./package.json": "./package.json"
   },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "tailwind-merge": "^2.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss-animate": "^1.0.7"
+  },
   "nx": {
     "name": "marketplace-ui"
   }

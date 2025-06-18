@@ -1,3 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* All CSS variables, theme mapping, and base styles are now defined in the shared Tailwind preset */
+/* This file only needs the Tailwind import since the preset handles everything */

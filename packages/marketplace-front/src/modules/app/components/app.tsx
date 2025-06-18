@@ -1,7 +1,7 @@
-import { MarketplaceUi } from '@mcp-marketplace/ui';
+import { Button } from '@mcp-marketplace/ui';
 
 export function App() {
-  return <MarketplaceUi />;
+  return <Button>Click me</Button>;
 }
 
 export default App;
