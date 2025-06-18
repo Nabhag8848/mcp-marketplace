@@ -8,6 +8,9 @@
     },
     {
       "path": "./packages/marketplace-front"
+    },
+    {
+      "path": "./packages/marketplace-ui"
     }
   ]
 }

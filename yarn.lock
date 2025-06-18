@@ -2335,6 +2335,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@mcp-marketplace/ui@workspace:packages/marketplace-ui":
+  version: 0.0.0-use.local
+  resolution: "@mcp-marketplace/ui@workspace:packages/marketplace-ui"
+  languageName: unknown
+  linkType: soft
+
 "@modern-js/node-bundle-require@npm:2.67.6":
   version: 2.67.6
   resolution: "@modern-js/node-bundle-require@npm:2.67.6"

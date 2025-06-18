@@ -1,9 +1,8 @@
 {
-  "name": "@mcp-marketplace/server",
+  "name": "marketplace-server",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/marketplace-server/src",
   "projectType": "application",
-  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",

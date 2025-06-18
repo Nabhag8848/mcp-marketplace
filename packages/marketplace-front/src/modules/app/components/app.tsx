@@ -1,5 +1,7 @@
+import { MarketplaceUi } from '@mcp-marketplace/ui';
+
 export function App() {
-  return <div></div>;
+  return <MarketplaceUi />;
 }
 
 export default App;

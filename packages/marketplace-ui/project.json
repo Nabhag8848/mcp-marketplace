@@ -1,0 +1,6 @@
+{
+  "name": "marketplace-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/marketplace-ui/src",
+  "projectType": "library"
+}
