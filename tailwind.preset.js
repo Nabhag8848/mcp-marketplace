@@ -74,29 +74,90 @@ module.exports = {
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
+        'fade-out': 'fadeOut 0.5s ease-in-out',
         'slide-up': 'slideUp 0.3s ease-out',
+        'slide-down': 'slideDown 0.3s ease-out',
+        'slide-in-from-left': 'slideInFromLeft 0.3s ease-out',
+        'slide-in-from-right': 'slideInFromRight 0.3s ease-out',
+        'scale-up': 'scaleUp 0.2s ease-out',
+        'scale-down': 'scaleDown 0.2s ease-out',
+        'bounce-in': 'bounceIn 0.6s ease-out',
+        shake: 'shake 0.5s ease-in-out',
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'collapsible-down': 'collapsible-down 0.2s ease-out',
+        'collapsible-up': 'collapsible-up 0.2s ease-out',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
         slideUp: {
           '0%': { transform: 'translateY(10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideDown: {
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        slideInFromLeft: {
+          '0%': { transform: 'translateX(-100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        slideInFromRight: {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        scaleUp: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        scaleDown: {
+          '0%': { transform: 'scale(1.05)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        bounceIn: {
+          '0%': { transform: 'scale(0.3)', opacity: '0' },
+          '50%': { transform: 'scale(1.05)' },
+          '70%': { transform: 'scale(0.9)' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        shake: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-10px)' },
+          '20%, 40%, 60%, 80%': { transform: 'translateX(10px)' },
+        },
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+        'collapsible-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-collapsible-content-height)' },
+        },
+        'collapsible-up': {
+          from: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: '0' },
         },
       },
     },
   },
   plugins: [
+    require('tailwindcss-animate'),
     plugin(function ({ addBase, addVariant }) {
-      // Add custom variant for dark mode
       addVariant('dark', '&:is(.dark *)');
 
-      // Add CSS variables
       addBase({
         ':root': {
-          // Base color variables
           '--background': 'oklch(1 0 0)',
           '--foreground': 'oklch(0.145 0 0)',
           '--card': 'oklch(1 0 0)',
@@ -112,7 +173,7 @@ module.exports = {
           '--accent': 'oklch(0.97 0 0)',
           '--accent-foreground': 'oklch(0.205 0 0)',
           '--destructive': 'oklch(0.577 0.245 27.325)',
-          '--destructive-foreground': 'oklch(0.577 0.245 27.325)',
+          '--destructive-foreground': 'oklch(0.985 0 0)',
           '--border': 'oklch(0.922 0 0)',
           '--input': 'oklch(0.922 0 0)',
           '--ring': 'oklch(0.708 0 0)',
@@ -131,7 +192,6 @@ module.exports = {
           '--sidebar-border': 'oklch(0.922 0 0)',
           '--sidebar-ring': 'oklch(0.708 0 0)',
 
-          // Theme mapping variables
           '--color-background': 'var(--background)',
           '--color-foreground': 'var(--foreground)',
           '--color-card': 'var(--card)',
@@ -172,7 +232,6 @@ module.exports = {
           '--color-sidebar-ring': 'var(--sidebar-ring)',
         },
         '.dark': {
-          // Dark mode color variables
           '--background': 'oklch(0.145 0 0)',
           '--foreground': 'oklch(0.985 0 0)',
           '--card': 'oklch(0.145 0 0)',
@@ -208,13 +267,17 @@ module.exports = {
         },
       });
 
-      // Add base styles with proper CSS syntax
       addBase({
         '*': {
           borderColor: 'var(--color-border)',
+          outlineColor: 'var(--color-ring)',
+          outlineWidth: '2px',
+          outlineStyle: 'solid',
+          outlineOffset: '2px',
+          outline: '2px solid transparent',
         },
         '*:focus-visible': {
-          outline: '2px solid hsl(from var(--color-ring) h s l / 0.5)',
+          outline: '2px solid var(--color-ring)',
           outlineOffset: '2px',
         },
         body: {
