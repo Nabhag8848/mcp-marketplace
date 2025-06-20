@@ -8,7 +8,7 @@
 ![scrapping](https://github.com/user-attachments/assets/465422ed-a83a-4b3e-95dd-d876af98bfcf)
 
 ## [v1] keeping scrapped mcp server in sync with new changes
-![ETL](https://github.com/user-attachments/assets/078e8595-3061-4024-8dbf-2494c54b9a26)
+![etl-integration](https://github.com/user-attachments/assets/f16d4219-6937-4a07-b8df-42e4f93dc38f)
 
 
 ## [v0] system (my initial thoughts when starting out) 
