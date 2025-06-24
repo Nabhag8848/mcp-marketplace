@@ -3,7 +3,7 @@
   "version": 2,
   "name": "mcp-marketplace",
   "buildCommand": "yarn nx build marketplace-front",
-  "outputDirectory": "dist/packages/marketplace-front",
+  "outputDirectory": "packages/marketplace-front/dist",
   "installCommand": "yarn install",
   "framework": null,
   "rewrites": [

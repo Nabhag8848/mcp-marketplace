@@ -7,7 +7,7 @@
     "build": {
       "executor": "@nx/js:tsc",
       "options": {
-        "outputPath": "dist/packages/marketplace-server",
+        "outputPath": "packages/marketplace-server/dist",
         "main": "packages/marketplace-server/src/main.ts",
         "tsConfig": "packages/marketplace-server/tsconfig.app.json",
         "assets": ["packages/marketplace-server/src/assets"]
