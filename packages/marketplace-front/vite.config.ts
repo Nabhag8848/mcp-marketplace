@@ -21,10 +21,6 @@ export default defineConfig(() => ({
       '~': path.resolve(__dirname, './src'),
     },
   },
-  // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
   build: {
     outDir: './dist',
     emptyOutDir: true,
