@@ -5,7 +5,7 @@
   "buildCommand": "yarn nx build marketplace-front",
   "outputDirectory": "packages/marketplace-front/dist",
   "installCommand": "yarn install",
-  "framework": null,
+  "framework": "vite",
   "rewrites": [
     {
       "source": "/(.*)",
