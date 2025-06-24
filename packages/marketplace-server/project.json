@@ -25,15 +25,15 @@
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
       "options": {
-        "buildTarget": "@mcp-marketplace/server:build",
+        "buildTarget": "marketplace-server:build",
         "runBuildTargetDependencies": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "@mcp-marketplace/server:build"
+          "buildTarget": "marketplace-server:build"
         },
         "production": {
-          "buildTarget": "@mcp-marketplace/server:build:production"
+          "buildTarget": "marketplace-server:build:production"
         }
       }
     }
