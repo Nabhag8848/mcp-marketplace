@@ -20,7 +20,7 @@
         }
       }
     },
-    "serve": {
+    "start": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
       "dependsOn": ["build"],
@@ -35,6 +35,48 @@
         "production": {
           "buildTarget": "marketplace-server:build:production"
         }
+      }
+    },
+    "migration:deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typeorm-ts-node-commonjs migration:run -d src/database/datasource/app.datasource.ts",
+        "cwd": "packages/marketplace-server"
+      }
+    },
+    "migration:revert": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typeorm-ts-node-commonjs migration:revert -d src/database/datasource/app.datasource.ts",
+        "cwd": "packages/marketplace-server"
+      }
+    },
+    "migration:generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typeorm-ts-node-commonjs migration:generate src/database/migrations/{args.name} -d src/database/datasource/app.datasource.ts",
+        "cwd": "packages/marketplace-server"
+      }
+    },
+    "migration:create": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typeorm-ts-node-commonjs migration:create src/database/migrations/{args.name}",
+        "cwd": "packages/marketplace-server"
+      }
+    },
+    "migration:show": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typeorm-ts-node-commonjs migration:show -d src/database/datasource/app.datasource.ts",
+        "cwd": "packages/marketplace-server"
+      }
+    },
+    "migration:schema:sync": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "typeorm-ts-node-commonjs schema:sync -d src/database/datasource/app.datasource.ts",
+        "cwd": "packages/marketplace-server"
       }
     }
   }
