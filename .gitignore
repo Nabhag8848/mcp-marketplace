@@ -105,7 +105,6 @@ tmp/
 temp/
 
 # Editor directories and files
-.cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
 # Build outputs
