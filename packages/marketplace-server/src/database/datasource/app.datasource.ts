@@ -13,14 +13,13 @@ export const createTypeOrmOptions = (): TypeOrmModuleOptions => ({
   password: process.env.POSTGRES_PASSWORD || 'postgres',
   database: process.env.POSTGRES_NAME || 'postgres',
 
-  // Entity and migration paths
-  entities: [join(__dirname, 'entities', '**', '*.entity.{ts,js}')],
-  migrations: [join(__dirname, 'migrations', '**', '*.{ts,js}')],
+  entities: [join(__dirname, '..', 'entities', '**', '*.entity.{ts,js}')],
+  migrations: [join(__dirname, '..', 'migrations', '**', '*.{ts,js}')],
   migrationsTableName: '__migrations__',
+  migrationsRun: false,
 
-  // Schema support
   extra: {
-    options: '-c search_path=core,discovery_source',
+    options: '-c search_path=public,core,discovery_source',
   },
 
   synchronize: false,
