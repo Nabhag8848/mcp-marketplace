@@ -2,5 +2,14 @@
   "name": "marketplace-front",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/marketplace-front/src",
-  "projectType": "application"
+  "projectType": "application",
+  "targets": {
+    "codegen": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "graphql-codegen --config src/modules/graphql/codegen.ts",
+        "cwd": "packages/marketplace-front"
+      }
+    }
+  }
 }
