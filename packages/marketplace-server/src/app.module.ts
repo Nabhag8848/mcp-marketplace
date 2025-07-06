@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database/database.module';
-import { GraphQLModule } from './modules/graphql/graphql.module';
-import { ExampleModule } from './modules/example/example.module';
+import { ModulesModule } from './modules/modules.module';
 
 @Module({
   imports: [
@@ -10,8 +9,7 @@ import { ExampleModule } from './modules/example/example.module';
       isGlobal: true,
     }),
     DatabaseModule,
-    GraphQLModule,
-    ExampleModule,
+    ModulesModule,
   ],
 })
 export class AppModule {}

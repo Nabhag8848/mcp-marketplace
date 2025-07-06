@@ -3632,6 +3632,7 @@ __metadata:
     "@graphql-codegen/typescript-operations": "npm:^4.6.1"
     "@graphql-codegen/typescript-react-apollo": "npm:^4.3.3"
     "@nestjs/apollo": "npm:^13.1.0"
+    "@nestjs/bullmq": "npm:^11.0.2"
     "@nestjs/common": "npm:^11.0.0"
     "@nestjs/config": "npm:^4.0.2"
     "@nestjs/core": "npm:^11.0.0"
@@ -3661,6 +3662,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.2.0"
     "@vitest/ui": "npm:^3.0.0"
     autoprefixer: "npm:10.4.13"
+    bullmq: "npm:^5.56.1"
     eslint: "npm:^9.8.0"
     eslint-config-prettier: "npm:^10.0.0"
     eslint-plugin-import: "npm:2.31.0"
@@ -4249,6 +4251,48 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-arm64@npm:3.0.3"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-darwin-x64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-darwin-x64@npm:3.0.3"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-arm64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm64@npm:3.0.3"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-arm@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-arm@npm:3.0.3"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-linux-x64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-linux-x64@npm:3.0.3"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@msgpackr-extract/msgpackr-extract-win32-x64@npm:3.0.3":
+  version: 3.0.3
+  resolution: "@msgpackr-extract/msgpackr-extract-win32-x64@npm:3.0.3"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@napi-rs/nice-android-arm-eabi@npm:1.0.1":
   version: 1.0.1
   resolution: "@napi-rs/nice-android-arm-eabi@npm:1.0.1"
@@ -4454,6 +4498,32 @@ __metadata:
     "@as-integrations/fastify":
       optional: true
   checksum: 10c0/21dc8127a65607290fd179ee111f0d073fa34c0b022b080d69c3ebc8657cb09993e2bf2a89e53aae9a1b2d74c2cd230e1d014a74893cbbc5723f9ef92027877c
+  languageName: node
+  linkType: hard
+
+"@nestjs/bull-shared@npm:^11.0.2":
+  version: 11.0.2
+  resolution: "@nestjs/bull-shared@npm:11.0.2"
+  dependencies:
+    tslib: "npm:2.8.1"
+  peerDependencies:
+    "@nestjs/common": ^10.0.0 || ^11.0.0
+    "@nestjs/core": ^10.0.0 || ^11.0.0
+  checksum: 10c0/47a132c75bdfb76f89a7680cf34d2cab6ef4650495d7a41bb43cf81271972a112716e8ef371830bf51c5ab0ac1f2a0b6c42ca71f4c16c99514d427543ea6464a
+  languageName: node
+  linkType: hard
+
+"@nestjs/bullmq@npm:^11.0.2":
+  version: 11.0.2
+  resolution: "@nestjs/bullmq@npm:11.0.2"
+  dependencies:
+    "@nestjs/bull-shared": "npm:^11.0.2"
+    tslib: "npm:2.8.1"
+  peerDependencies:
+    "@nestjs/common": ^10.0.0 || ^11.0.0
+    "@nestjs/core": ^10.0.0 || ^11.0.0
+    bullmq: ^3.0.0 || ^4.0.0 || ^5.0.0
+  checksum: 10c0/f5bb1d816cfbf7536db9bc50d1bda23110a0edd9c678d73b39a9e3005b83c6f7b67cc4a63e28c088ec69ca61596ff991c91ec44929adf93990a452324d6073a5
   languageName: node
   linkType: hard
 
@@ -7928,6 +7998,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bullmq@npm:^5.56.1":
+  version: 5.56.1
+  resolution: "bullmq@npm:5.56.1"
+  dependencies:
+    cron-parser: "npm:^4.9.0"
+    ioredis: "npm:^5.4.1"
+    msgpackr: "npm:^1.11.2"
+    node-abort-controller: "npm:^3.1.1"
+    semver: "npm:^7.5.4"
+    tslib: "npm:^2.0.0"
+    uuid: "npm:^9.0.0"
+  checksum: 10c0/31eaa6a3bfb6b0f039f0eb7bea6c0af4f858c49207aebfdcef6d3e7c53f032667825db9420d390a576e018bc8c4251688113f7cb821d1255e40f892adc689ce4
+  languageName: node
+  linkType: hard
+
 "busboy@npm:^1.6.0":
   version: 1.6.0
   resolution: "busboy@npm:1.6.0"
@@ -8640,7 +8725,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cron-parser@npm:^4.2.0":
+"cron-parser@npm:^4.2.0, cron-parser@npm:^4.9.0":
   version: 4.9.0
   resolution: "cron-parser@npm:4.9.0"
   dependencies:
@@ -9055,6 +9140,13 @@ __metadata:
   version: 6.1.0
   resolution: "detect-indent@npm:6.1.0"
   checksum: 10c0/dd83cdeda9af219cf77f5e9a0dc31d828c045337386cfb55ce04fad94ba872ee7957336834154f7647b89b899c3c7acc977c57a79b7c776b506240993f97acc7
+  languageName: node
+  linkType: hard
+
+"detect-libc@npm:^2.0.1":
+  version: 2.0.4
+  resolution: "detect-libc@npm:2.0.4"
+  checksum: 10c0/c15541f836eba4b1f521e4eecc28eefefdbc10a94d3b8cb4c507689f332cc111babb95deda66f2de050b22122113189986d5190be97d51b5a2b23b938415e67c
   languageName: node
   linkType: hard
 
@@ -11504,7 +11596,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis@npm:*, ioredis@npm:^5.6.1":
+"ioredis@npm:*, ioredis@npm:^5.4.1, ioredis@npm:^5.6.1":
   version: 5.6.1
   resolution: "ioredis@npm:5.6.1"
   dependencies:
@@ -13544,6 +13636,49 @@ __metadata:
   languageName: node
   linkType: hard
 
+"msgpackr-extract@npm:^3.0.2":
+  version: 3.0.3
+  resolution: "msgpackr-extract@npm:3.0.3"
+  dependencies:
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-darwin-x64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-linux-arm": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-linux-arm64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-linux-x64": "npm:3.0.3"
+    "@msgpackr-extract/msgpackr-extract-win32-x64": "npm:3.0.3"
+    node-gyp: "npm:latest"
+    node-gyp-build-optional-packages: "npm:5.2.2"
+  dependenciesMeta:
+    "@msgpackr-extract/msgpackr-extract-darwin-arm64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-darwin-x64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-linux-arm":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-linux-arm64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-linux-x64":
+      optional: true
+    "@msgpackr-extract/msgpackr-extract-win32-x64":
+      optional: true
+  bin:
+    download-msgpackr-prebuilds: bin/download-prebuilds.js
+  checksum: 10c0/e504fd8bf86a29d7527c83776530ee6dc92dcb0273bb3679fd4a85173efead7f0ee32fb82c8410a13c33ef32828c45f81118ffc0fbed5d6842e72299894623b4
+  languageName: node
+  linkType: hard
+
+"msgpackr@npm:^1.11.2":
+  version: 1.11.4
+  resolution: "msgpackr@npm:1.11.4"
+  dependencies:
+    msgpackr-extract: "npm:^3.0.2"
+  dependenciesMeta:
+    msgpackr-extract:
+      optional: true
+  checksum: 10c0/171f6e15b628e91969cbb715c076e218886dc505fdac9ce31aa9e8641877cb5cf52d89fe0ca2930520711b1bbc9f792e10d0a9fc08806ad5d543c50abfab322c
+  languageName: node
+  linkType: hard
+
 "multer@npm:2.0.1":
   version: 2.0.1
   resolution: "multer@npm:2.0.1"
@@ -13667,6 +13802,19 @@ __metadata:
     fetch-blob: "npm:^3.1.4"
     formdata-polyfill: "npm:^4.0.10"
   checksum: 10c0/f3d5e56190562221398c9f5750198b34cf6113aa304e34ee97c94fd300ec578b25b2c2906edba922050fce983338fde0d5d34fcb0fc3336ade5bd0e429ad7538
+  languageName: node
+  linkType: hard
+
+"node-gyp-build-optional-packages@npm:5.2.2":
+  version: 5.2.2
+  resolution: "node-gyp-build-optional-packages@npm:5.2.2"
+  dependencies:
+    detect-libc: "npm:^2.0.1"
+  bin:
+    node-gyp-build-optional-packages: bin.js
+    node-gyp-build-optional-packages-optional: optional.js
+    node-gyp-build-optional-packages-test: build-test.js
+  checksum: 10c0/c81128c6f91873381be178c5eddcbdf66a148a6a89a427ce2bcd457593ce69baf2a8662b6d22cac092d24aa9c43c230dec4e69b3a0da604503f4777cd77e282b
   languageName: node
   linkType: hard
 
@@ -16935,7 +17083,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.8.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0, tslib@npm:^2.5.0, tslib@npm:^2.6.2, tslib@npm:^2.6.3, tslib@npm:^2.8.0, tslib@npm:^2.8.1":
+"tslib@npm:2.8.1, tslib@npm:^2.0.0, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0, tslib@npm:^2.4.0, tslib@npm:^2.5.0, tslib@npm:^2.6.2, tslib@npm:^2.6.3, tslib@npm:^2.8.0, tslib@npm:^2.8.1":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62

@@ -1,6 +1,7 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import Redis, { RedisOptions } from 'ioredis';
+import Redis from 'ioredis';
+import { createRedisConfig } from './redis.config';
 
 @Injectable()
 export class RedisService implements OnModuleInit, OnModuleDestroy {
@@ -17,21 +18,7 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
   }
 
   private async createConnection(): Promise<void> {
-    const redisConfig: RedisOptions = {
-      host: this.configService.get<string>('REDIS_HOST', '127.0.0.1'),
-      port: this.configService.get<number>('REDIS_PORT', 6378),
-      db: this.configService.get<number>('REDIS_DB', 0),
-      lazyConnect: true,
-      tls: this.configService.get<boolean>('REDIS_TLS', false)
-        ? {
-            rejectUnauthorized: !this.configService.get<boolean>(
-              'REDIS_TLS_INSECURE',
-              true
-            ),
-          }
-        : undefined,
-    };
-
+    const redisConfig = createRedisConfig(this.configService);
     this.redis = new Redis(redisConfig);
     await this.redis.connect();
   }

@@ -1,2 +1,3 @@
-export { RedisService } from './redis.service';
-export { RedisModule } from './redis.module';
+export * from './redis.config';
+export * from './redis.module';
+export * from './redis.service';
