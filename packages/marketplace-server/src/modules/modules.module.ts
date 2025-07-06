@@ -2,8 +2,9 @@ import { Module } from '@nestjs/common';
 import { QueueModule } from './queue/queue.module';
 import { GraphQLModule } from './graphql/graphql.module';
 import { ExampleModule } from './example/example.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
-  imports: [QueueModule, GraphQLModule, ExampleModule],
+  imports: [QueueModule, GraphQLModule, ExampleModule, HealthModule],
 })
 export class ModulesModule {}
