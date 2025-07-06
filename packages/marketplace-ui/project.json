@@ -2,5 +2,15 @@
   "name": "marketplace-ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/marketplace-ui/src",
-  "projectType": "library"
+  "projectType": "library",
+  "targets": {
+    "shadcn:component:add": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx shadcn@latest add {args.component}",
+        "cwd": "packages/marketplace-ui"
+      },
+      "description": "Add a shadcn component to the UI library"
+    }
+  }
 }
