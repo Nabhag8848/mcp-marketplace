@@ -30,10 +30,12 @@
       },
       "configurations": {
         "development": {
-          "buildTarget": "marketplace-server:build"
+          "buildTarget": "marketplace-server:build",
+          "inspect": false
         },
         "production": {
-          "buildTarget": "marketplace-server:build:production"
+          "buildTarget": "marketplace-server:build:production",
+          "inspect": false
         }
       }
     },
