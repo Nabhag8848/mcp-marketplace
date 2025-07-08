@@ -8,7 +8,8 @@ export class GithubGraphqlService implements OnModuleInit, OnModuleDestroy {
 
   constructor(private readonly configService: ConfigService) {}
 
-  async onModuleInit(): Promise<void> {
+  public onModuleInit(): void {
+    // empty string by default for gracefully starting application even if token is not set
     const token = this.configService.get<string>('GITHUB_PERSONAL_TOKEN', '');
 
     this.githubClient = gql.defaults({
@@ -18,7 +19,7 @@ export class GithubGraphqlService implements OnModuleInit, OnModuleDestroy {
     });
   }
 
-  getGithubGraphqlClient(): typeof gql {
+  public getGithubGraphqlClient(): typeof gql {
     if (!this.githubClient) {
       throw new Error('github graphql client not initialized');
     }
@@ -26,7 +27,7 @@ export class GithubGraphqlService implements OnModuleInit, OnModuleDestroy {
     return this.githubClient;
   }
 
-  async onModuleDestroy(): Promise<void> {
+  public onModuleDestroy(): void {
     this.githubClient = null;
   }
 }
