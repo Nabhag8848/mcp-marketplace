@@ -18,6 +18,8 @@
     "@nestjs/graphql": "^13.1.0",
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/typeorm": "^11.0.0",
+    "@octokit/graphql": "^9.0.1",
+    "@octokit/graphql-schema": "^15.26.0",
     "bullmq": "^5.56.1",
     "graphql": "^16.11.0",
     "ioredis": "^5.6.1",
