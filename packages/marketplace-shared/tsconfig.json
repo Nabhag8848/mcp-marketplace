@@ -4,10 +4,7 @@
   "include": [],
   "references": [
     {
-      "path": "../marketplace-shared"
-    },
-    {
-      "path": "./tsconfig.app.json"
+      "path": "./tsconfig.lib.json"
     }
   ]
 }

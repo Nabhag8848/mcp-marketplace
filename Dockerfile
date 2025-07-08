@@ -16,10 +16,10 @@ COPY . .
 RUN yarn install 
 
 # Build the application
-RUN yarn nx build marketplace-server --prod
+RUN yarn nx build marketplace-server --configuration=production
 
 # Expose the port that your app runs on
 EXPOSE 3000
 
 # Start the application
-CMD ["node", "packages/marketplace-server/dist/src/main.js"] 
+CMD ["yarn", "nx", "start", "marketplace-server", "--configuration=production"] 

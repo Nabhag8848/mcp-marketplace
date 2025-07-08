@@ -11,6 +11,9 @@
     },
     {
       "path": "./packages/marketplace-ui"
+    },
+    {
+      "path": "./packages/marketplace-shared"
     }
   ]
 }
