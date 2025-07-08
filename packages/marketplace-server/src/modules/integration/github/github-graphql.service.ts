@@ -1,7 +1,7 @@
 import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { graphql as gql } from '@octokit/graphql';
-import { isEmpty } from 'lodash';
+import { isNonEmpty } from '@mcp-marketplace/shared';
 
 @Injectable()
 export class GithubGraphqlService implements OnModuleInit, OnModuleDestroy {
@@ -13,7 +13,7 @@ export class GithubGraphqlService implements OnModuleInit, OnModuleDestroy {
     // empty string by default for gracefully starting application even if token is not set
     const token = this.configService.get<string>('GITHUB_PERSONAL_TOKEN', '');
 
-    if (!isEmpty(token)) {
+    if (isNonEmpty(token)) {
       this.githubClient = gql.defaults({
         headers: {
           authorization: `token ${token}`,

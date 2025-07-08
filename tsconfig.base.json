@@ -20,6 +20,9 @@
     "strictNullChecks": true,
     "noImplicitAny": true,
     "strictBindCallApply": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@mcp-marketplace/shared": ["packages/marketplace-shared/dist/src/index"]
+    }
   }
 }
