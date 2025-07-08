@@ -3615,6 +3615,14 @@ __metadata:
 "@mcp-marketplace/server@workspace:packages/marketplace-server":
   version: 0.0.0-use.local
   resolution: "@mcp-marketplace/server@workspace:packages/marketplace-server"
+  dependencies:
+    "@mcp-marketplace/shared": "npm:*"
+  languageName: unknown
+  linkType: soft
+
+"@mcp-marketplace/shared@npm:*, @mcp-marketplace/shared@workspace:packages/marketplace-shared":
+  version: 0.0.0-use.local
+  resolution: "@mcp-marketplace/shared@workspace:packages/marketplace-shared"
   languageName: unknown
   linkType: soft
 

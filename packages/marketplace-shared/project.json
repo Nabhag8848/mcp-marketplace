@@ -1,0 +1,19 @@
+{
+  "name": "marketplace-shared",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/marketplace-shared/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/marketplace-shared/dist",
+        "main": "packages/marketplace-shared/src/index.ts",
+        "tsConfig": "packages/marketplace-shared/tsconfig.lib.json",
+        "packageJson": "packages/marketplace-shared/package.json"
+      }
+    }
+  }
+}

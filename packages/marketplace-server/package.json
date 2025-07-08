@@ -1,5 +1,8 @@
 {
   "name": "@mcp-marketplace/server",
   "version": "0.0.1",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@mcp-marketplace/shared": "*"
+  }
 }

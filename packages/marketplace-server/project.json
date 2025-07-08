@@ -6,6 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
+      "dependsOn": ["^build"],
       "options": {
         "outputPath": "packages/marketplace-server/dist",
         "main": "packages/marketplace-server/src/main.ts",
