@@ -4,7 +4,7 @@
   "sourceRoot": "packages/marketplace-front/src",
   "projectType": "application",
   "targets": {
-    "codegen": {
+    "graphql:codegen": {
       "executor": "nx:run-commands",
       "options": {
         "command": "graphql-codegen --config src/modules/graphql/codegen.ts",
