@@ -1,10 +1,17 @@
 {
   "name": "marketplace-shared",
+  "tags": ["type:lib", "scope:shared"],
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/marketplace-shared/src",
   "projectType": "library",
-  "tags": [],
   "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --project tsconfig.lib.json --noEmit",
+        "cwd": "packages/marketplace-shared"
+      }
+    },
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],

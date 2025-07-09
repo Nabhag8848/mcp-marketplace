@@ -1,9 +1,18 @@
 {
   "name": "marketplace-front",
+  "tags": ["type:app", "scope:front"],
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/marketplace-front/src",
   "projectType": "application",
   "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --project tsconfig.app.json --noEmit",
+        "cwd": "packages/marketplace-front"
+      },
+      "dependsOn": ["^typecheck"]
+    },
     "graphql:codegen": {
       "executor": "nx:run-commands",
       "options": {
