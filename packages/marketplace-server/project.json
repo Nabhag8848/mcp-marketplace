@@ -1,5 +1,6 @@
 {
   "name": "marketplace-server",
+  "tags": ["type:app", "scope:server"],
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "packages/marketplace-server/src",
   "projectType": "application",
