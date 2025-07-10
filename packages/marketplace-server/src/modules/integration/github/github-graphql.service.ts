@@ -5,7 +5,7 @@ import { isNonEmpty, isNull } from '@mcp-marketplace/shared';
 
 @Injectable()
 export class GithubGraphqlService implements OnModuleInit, OnModuleDestroy {
-  private githubClient: typeof gql | null = null;
+  private githubClient: (typeof gql) | null = null;
 
   constructor(private readonly configService: ConfigService) {}
 

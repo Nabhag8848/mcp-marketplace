@@ -21,7 +21,6 @@
     "noImplicitAny": true,
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
     "paths": {
       "@mcp-marketplace/shared": ["packages/marketplace-shared/dist/src/index"]
     }
