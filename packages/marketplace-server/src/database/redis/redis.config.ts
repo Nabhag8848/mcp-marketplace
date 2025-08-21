@@ -11,5 +11,6 @@ export const createRedisConfig = (
     username: configService.get<string>('REDISUSER', 'postgres'),
     password: configService.get<string>('REDIS_PASSWORD', 'postgres'),
     lazyConnect: true,
+    family: 0,
   };
 };
