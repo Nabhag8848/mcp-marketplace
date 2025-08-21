@@ -1,2 +1,5 @@
 // Export all entities
-export { Mcp } from './core/mcp.entity';
+
+export { Tool } from './core/tool.entity';
+export { Repository } from './core/repository.entity';
+export { MCPServer } from './core/mcp-server.entity';
