@@ -13,7 +13,6 @@
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "target": "es2022",
-    "customConditions": ["development"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "useDefineForClassFields": false,
@@ -21,6 +20,7 @@
     "noImplicitAny": true,
     "strictBindCallApply": true,
     "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
     "paths": {
       "@mcp-marketplace/shared": ["packages/marketplace-shared/dist/src/index"]
     }

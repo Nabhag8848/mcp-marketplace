@@ -15,7 +15,7 @@ services:
     image: redis/redis-stack:latest
     container_name: mcp-marketplace-redis
     ports:
-      - '6378:6379' # Map Redis (container 6379) to host 6378
+      - '6379:6379' # Map Redis (container 6379) to host 6378
       - '8001:8001' # RedisInsight UI
     volumes:
       - redis_data:/data
