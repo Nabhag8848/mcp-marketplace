@@ -26,6 +26,9 @@ export class Repository extends BaseEntity {
   @Column({ type: 'text', nullable: true })
   readme_md: string | null;
 
+  @Column({ type: 'boolean', default: false })
+  is_target: boolean;
+
   @Column({ type: 'varchar', length: 40, nullable: true })
   readme_sha: string | null;
 
