@@ -1,6 +1,5 @@
 import { ConfigService } from '@nestjs/config';
 import { RedisOptions } from 'ioredis';
-import { isEqual } from 'lodash';
 
 export const createRedisConfig = (
   configService: ConfigService
@@ -12,17 +11,5 @@ export const createRedisConfig = (
     username: configService.get<string>('REDIS_USERNAME', ''),
     password: configService.get<string>('REDIS_PASSWORD', ''),
     lazyConnect: true,
-    tls:
-      isEqual(
-        configService.get<string>('NODE_ENV', 'development'),
-        'production'
-      ) && configService.get<boolean>('REDIS_TLS', false)
-        ? {
-            rejectUnauthorized: !configService.get<boolean>(
-              'REDIS_TLS_INSECURE',
-              true
-            ),
-          }
-        : undefined,
   };
 };
