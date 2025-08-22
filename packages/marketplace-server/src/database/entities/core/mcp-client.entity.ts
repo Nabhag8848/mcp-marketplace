@@ -15,7 +15,7 @@ export class MCPClient extends BaseEntity {
   @Column({ type: 'varchar', length: 255 })
   name: string;
 
-  @Column({ type: 'varchar', length: 320, nullable: true })
+  @Column({ type: 'varchar', length: 350, nullable: true })
   description: string | null;
 
   @Column({ type: 'text', nullable: true })
