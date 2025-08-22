@@ -3,7 +3,7 @@ import { QueueModule } from './queue/queue.module';
 import { GraphQLModule } from './graphql/graphql.module';
 import { ExampleModule } from './example/example.module';
 import { HealthModule } from './health/health.module';
-import { IntegrationModule } from './integration/integration.module';
+import { SourceModule } from './sources/source.module';
 
 @Module({
   imports: [
@@ -11,7 +11,7 @@ import { IntegrationModule } from './integration/integration.module';
     GraphQLModule,
     ExampleModule,
     HealthModule,
-    IntegrationModule,
+    SourceModule,
   ],
 })
 export class ModulesModule {}

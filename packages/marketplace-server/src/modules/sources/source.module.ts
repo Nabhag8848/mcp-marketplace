@@ -4,4 +4,4 @@ import { GithubModule } from './github/github.module';
 @Module({
   imports: [GithubModule],
 })
-export class IntegrationModule {}
+export class SourceModule {}
