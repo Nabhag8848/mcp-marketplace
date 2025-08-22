@@ -8,8 +8,9 @@ import {
   OneToMany,
 } from 'typeorm';
 import { MCPServer } from './mcp-server.entity';
+import { RepositoryType } from '../../enum';
 
-@Entity({ name: 'repository', schema: 'core' })
+@Entity({ name: 'repository', schema: 'discovery_source' })
 export class Repository extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -34,6 +35,9 @@ export class Repository extends BaseEntity {
 
   @Column({ type: 'varchar', length: 30 })
   discovery_source: string;
+
+  @Column({ type: 'enum', enum: RepositoryType, default: null, nullable: true })
+  type: RepositoryType | null;
 
   @OneToMany(() => MCPServer, (mcp_server) => mcp_server.repository)
   mcp_servers: MCPServer[];

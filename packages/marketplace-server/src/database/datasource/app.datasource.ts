@@ -19,7 +19,7 @@ export const createTypeOrmOptions = (): TypeOrmModuleOptions => ({
   migrationsRun: false,
 
   extra: {
-    options: '-c search_path=public,core',
+    options: '-c search_path=public,core,discovery_source',
   },
 
   synchronize: false,
