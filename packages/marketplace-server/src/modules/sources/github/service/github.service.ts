@@ -1,39 +1,57 @@
 import { Injectable } from '@nestjs/common';
 import { GithubGraphQLClient } from '../client/github-graphql-client.service';
 import { graphql } from '@octokit/graphql';
-import { SearchResultItemConnection } from '@octokit/graphql-schema';
+import {
+  QuerySearchArgs,
+  SearchResultItemConnection,
+} from '@octokit/graphql-schema';
 
 @Injectable()
 export class GithubService {
-  private gql: typeof graphql;
+  constructor(private readonly githubClient: GithubGraphQLClient) {}
 
-  constructor(private readonly githubClient: GithubGraphQLClient) {
-    this.gql = this.githubClient.getGithubGraphqlClient();
+  private get gql(): typeof graphql {
+    return this.githubClient.getGithubGraphqlClient();
   }
 
-  public async searchRepositories() {
-    return this.gql<SearchResultItemConnection>(`
-        query {
-            search(query: "mcp server in:name,description", type: REPOSITORY) {
+  public async searchRepositories({ after }: Pick<QuerySearchArgs, 'after'>) {
+    return this.gql<SearchResultItemConnection>(
+      `
+        query searchRepositories($after: String) {
+            search(query: "mcp server in:name,description", type: REPOSITORY, first: 100, after: $after ) {
                 nodes {
                     ... on Repository {
-                        name
-                        owner
-                        description
-                        createdAt
-                        updatedAt
-                        pushedAt
+                      id
+                      name
+                      owner {
+                        id
+                        login
+                      }
+                      description
+                      readme: object(expression: "HEAD:README.md") {
+                        ... on Blob {
+                            md: text
+                        }
+                      }
+                      createdAt
+                      updatedAt
+                      pushedAt
                     }
                 }
-                rateLimit {
-                    resetAt
-                    used
-                    remaining
-                    cost
-                    limit
+                pageInfo {
+                  hasNextPage
+                  startCursor
+                  endCursor
                 }
             }
+          rateLimit {
+            resetAt
+            remaining
+            limit
+          }
         }
-    `);
+    `,
+      { after }
+    );
   }
 }

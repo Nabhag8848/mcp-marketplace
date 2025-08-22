@@ -12,7 +12,7 @@ export class GithubGraphQLClient implements OnModuleInit, OnModuleDestroy {
   public onModuleInit(): void {
     const token = this.configService.get<string>('GITHUB_PERSONAL_TOKEN', '');
 
-    if (isNonEmpty(token) && !isNull(this.githubClient)) {
+    if (isNonEmpty(token)) {
       this.githubClient = gql.defaults({
         headers: {
           authorization: `token ${token}`,
