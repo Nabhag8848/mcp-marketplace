@@ -9,8 +9,9 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { Repository } from './repository.entity';
+import { Repository } from '../discovery-source/repository.entity';
 import { Tool } from './tool.entity';
+import { ServerConfig } from './server-config.entity';
 
 @Entity({ name: 'mcp_server', schema: 'core' })
 export class MCPServer extends BaseEntity {
@@ -29,6 +30,9 @@ export class MCPServer extends BaseEntity {
 
   @OneToMany(() => Tool, (tool) => tool.mcp_server)
   tools: Tool[];
+
+  @OneToMany(() => ServerConfig, (config) => config.mcp_server)
+  server_configs: ServerConfig[];
 
   @CreateDateColumn({
     type: 'timestamptz',

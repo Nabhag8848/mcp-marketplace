@@ -7,7 +7,7 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from 'typeorm';
-import { MCPServer } from './mcp-server.entity';
+import { MCPServer } from '../core/mcp-server.entity';
 import { RepositoryType } from '../../enum';
 
 @Entity({ name: 'repository', schema: 'discovery_source' })
