@@ -14,11 +14,17 @@ export class GithubService {
     return this.githubClient.getGithubGraphqlClient();
   }
 
-  public async searchRepositories({ after }: Pick<QuerySearchArgs, 'after'>) {
+  // example query: "mcp server in:name,description,readme created:>2025-08-22(current_date - 1)"
+  // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+
+  public async searchRepositories({
+    after,
+    query,
+  }: Pick<QuerySearchArgs, 'after' | 'query'>) {
     return this.gql<SearchResultItemConnection>(
       `
-        query searchRepositories($after: String) {
-            search(query: "mcp server in:name,description", type: REPOSITORY, first: 100, after: $after ) {
+        query searchRepositories($after: String, $query: String!) {
+            search(query: $query, type: REPOSITORY, first: 100, after: $after ) {
                 nodes {
                     ... on Repository {
                       id
@@ -51,7 +57,7 @@ export class GithubService {
           }
         }
     `,
-      { after }
+      { after, query }
     );
   }
 }
