@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import {
   EndCursor,
   HasNextPage,
@@ -8,6 +8,8 @@ import { GithubService } from '../../modules/sources/github/service/github.servi
 
 @Injectable()
 export class RepositoryDiscoveryOrchestrator {
+  private readonly logger = new Logger(RepositoryDiscoveryOrchestrator.name);
+
   constructor(private readonly githubService: GithubService) {}
 
   async discoverRepositories({
@@ -18,18 +20,22 @@ export class RepositoryDiscoveryOrchestrator {
     let endCursor: EndCursor = undefined;
     let hasNextPage: HasNextPage = false;
 
-    do {
-      const repository = await this.githubService.searchRepositories({
-        query,
-        endCursor,
-      });
+    try {
+      do {
+        const repository = await this.githubService.searchRepositories({
+          query,
+          endCursor,
+        });
 
-      const { nodes, pageInfo } = repository.search;
+        const { nodes, pageInfo } = repository.search;
 
-      console.dir({ nodes });
+        this.logger.verbose({ nodes });
 
-      hasNextPage = pageInfo.hasNextPage;
-      endCursor = pageInfo.endCursor;
-    } while (hasNextPage);
+        hasNextPage = pageInfo.hasNextPage;
+        endCursor = pageInfo.endCursor;
+      } while (hasNextPage);
+    } catch (error) {
+      this.logger.error(error);
+    }
   }
 }
