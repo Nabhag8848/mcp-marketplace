@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { GithubGraphQLClient } from '../client/github-graphql-client.service';
 import { graphql } from '@octokit/graphql';
 import {
-  QuerySearchArgs,
-  SearchResultItemConnection,
-} from '@octokit/graphql-schema';
+  SearchRepositoriesResponse,
+  SearchRepositoriesInput,
+} from '../@types/github';
 
 @Injectable()
 export class GithubService {
@@ -18,13 +18,17 @@ export class GithubService {
   // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
 
   public async searchRepositories({
-    after,
     query,
-  }: Pick<QuerySearchArgs, 'after' | 'query'>) {
-    return this.gql<SearchResultItemConnection>(
-      `
-        query searchRepositories($after: String, $query: String!) {
-            search(query: $query, type: REPOSITORY, first: 100, after: $after ) {
+    endCursor,
+    createdAfter,
+  }: SearchRepositoriesInput): Promise<SearchRepositoriesResponse> {
+    const queryString = createdAfter
+      ? `${query} created:>${createdAfter}`
+      : query;
+
+    return this.gql<SearchRepositoriesResponse>(
+      `query searchRepositories($after: String, $queryString: String!) {
+            search(query: $queryString, type: REPOSITORY, first: 100, after: $after ) {
                 nodes {
                     ... on Repository {
                       id
@@ -57,7 +61,7 @@ export class GithubService {
           }
         }
     `,
-      { after, query }
+      { after: endCursor, queryString }
     );
   }
 }

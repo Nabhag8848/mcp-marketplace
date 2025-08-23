@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { DiscoveryModule } from '@nestjs/core';
+import { DiscoveryModule } from './discovery/discovery.module';
 
 @Module({
   imports: [DiscoveryModule],
