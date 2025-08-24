@@ -3,5 +3,6 @@ import { GithubModule } from './github/github.module';
 
 @Module({
   imports: [GithubModule],
+  exports: [GithubModule],
 })
-export class IntegrationModule {}
+export class SourceModule {}
