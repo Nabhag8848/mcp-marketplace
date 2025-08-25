@@ -7,7 +7,6 @@ import {
 import { GithubService } from '../../modules/sources/github/service/github.service';
 import { InjectQueue } from '@nestjs/bullmq';
 import { Queue } from 'bullmq';
-import { Repository } from '../../database/entities';
 
 @Injectable()
 export class RepositoryDiscoveryOrchestrator {
@@ -37,24 +36,10 @@ export class RepositoryDiscoveryOrchestrator {
         });
         const { nodes, pageInfo } = repositories.search;
 
-        const result: Array<Partial<Repository>> = nodes.map((node) => {
-          return {
-            source_id: node.id,
-            name: node.name,
-            description: node?.description,
-            owner: node.owner.login,
-            readme_md: node?.readme?.md,
-            readme_sha: node?.readme?.oid,
-            discovery_source: 'github',
-            source_created_at: new Date(node.createdAt),
-            source_updated_at: new Date(node.updatedAt),
-          };
-        });
-
         await this.repositoryQueue.add(
           'process-repositories',
           {
-            repositoryData: result,
+            repositoryData: nodes,
           },
           {
             removeOnComplete: true,
@@ -62,7 +47,7 @@ export class RepositoryDiscoveryOrchestrator {
         );
 
         this.logger.verbose(
-          `queued ${result.length} repositories for processing`
+          `queued ${nodes.length} repositories for processing`
         );
 
         hasNextPage = pageInfo.hasNextPage;
