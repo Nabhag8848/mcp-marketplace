@@ -9,9 +9,9 @@ export class ManualController {
 
   @Get()
   async manualTrigger() {
-    await this.repositoryOrchestrator.discoverRepositories({
-      query: 'mcp server in:name,description,readme',
-    });
+    setTimeout(async () => {
+      await this.repositoryOrchestrator.discoverRepositories({});
+    }, 3000);
 
     return 'started process';
   }

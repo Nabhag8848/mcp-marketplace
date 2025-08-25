@@ -29,6 +29,7 @@ export class GithubService {
     return this.gql<SearchRepositoriesResponse>(
       `query searchRepositories($after: String, $queryString: String!) {
             search(query: $queryString, type: REPOSITORY, first: 100, after: $after ) {
+                repositoryCount
                 nodes {
                     ... on Repository {
                       id
@@ -40,6 +41,7 @@ export class GithubService {
                       description
                       readme: object(expression: "HEAD:README.md") {
                         ... on Blob {
+                            oid
                             md: text
                         }
                       }
