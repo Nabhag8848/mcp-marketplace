@@ -12,7 +12,9 @@ import { Repository } from '../../database/entities';
 @Injectable()
 export class RepositoryDiscoveryOrchestrator {
   private readonly logger = new Logger(RepositoryDiscoveryOrchestrator.name);
-  private readonly defaultQuery = 'mcp server in:name,description,readme';
+  private readonly defaultQuery = `mcp in:name,description,readme created:>=${
+    new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString().split('T')[0]
+  }`;
 
   constructor(
     private readonly githubService: GithubService,

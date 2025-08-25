@@ -5,6 +5,7 @@ import {
   Blob,
   RateLimit,
   QuerySearchArgs,
+  SearchResultItemConnection,
 } from '@octokit/graphql-schema';
 
 export interface RepositorySearchNode {
@@ -26,6 +27,7 @@ export interface RepositorySearchNode {
 
 export interface SearchRepositoriesResponse {
   search: {
+    repositoryCount: SearchResultItemConnection['repositoryCount'];
     nodes: RepositorySearchNode[];
     pageInfo: {
       hasNextPage: PageInfo['hasNextPage'];
