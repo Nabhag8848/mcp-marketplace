@@ -20,6 +20,7 @@ export interface RepositorySearchNode {
   };
   readme?: {
     md?: Blob['text'];
+    oid?: Blob['oid'];
   } | null;
 }
 
