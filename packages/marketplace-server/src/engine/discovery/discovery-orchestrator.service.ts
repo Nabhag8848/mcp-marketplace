@@ -5,9 +5,9 @@ import {
   SearchRepositoriesInput,
 } from '../../modules/sources/github/@types';
 import { GithubService } from '../../modules/sources/github/service/github.service';
-import { Repository as RepositoryEntity } from '../../database/entities';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
+import { InjectQueue } from '@nestjs/bullmq';
+import { Queue } from 'bullmq';
+import { Repository } from '../../database/entities';
 
 @Injectable()
 export class RepositoryDiscoveryOrchestrator {
@@ -16,8 +16,8 @@ export class RepositoryDiscoveryOrchestrator {
 
   constructor(
     private readonly githubService: GithubService,
-    @InjectRepository(RepositoryEntity)
-    private repositoryService: Repository<RepositoryEntity>
+    @InjectQueue('repository-processing')
+    private repositoryQueue: Queue
   ) {}
 
   async discoverRepositories(params?: {
@@ -35,7 +35,7 @@ export class RepositoryDiscoveryOrchestrator {
         });
         const { nodes, pageInfo } = repositories.search;
 
-        const result: Array<Partial<RepositoryEntity>> = nodes.map((node) => {
+        const result: Array<Partial<Repository>> = nodes.map((node) => {
           return {
             source_id: node.id,
             name: node.name,
@@ -49,14 +49,18 @@ export class RepositoryDiscoveryOrchestrator {
           };
         });
 
-        // Use upsert to handle existing repositories without errors
-        await this.repositoryService.upsert(result, {
-          conflictPaths: ['source_id'],
-          skipUpdateIfNoValuesChanged: true,
-        });
+        await this.repositoryQueue.add(
+          'process-repositories',
+          {
+            repositoryData: result,
+          },
+          {
+            removeOnComplete: true,
+          }
+        );
 
         this.logger.verbose(
-          `processed ${result.length} repositories (inserted/updated based on source_id)`
+          `queued ${result.length} repositories for processing`
         );
 
         hasNextPage = pageInfo.hasNextPage;

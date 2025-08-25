@@ -1,12 +1,11 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { ManualController } from './manual.controller';
 import { RepositoryDiscoveryOrchestrator } from './discovery-orchestrator.service';
 import { GithubModule } from '../../modules/sources/github/github.module';
-import { Repository as RepositoryEntity } from '../../database/entities';
+import { QueueModule } from '../../modules/queue/queue.module';
 
 @Module({
-  imports: [GithubModule, TypeOrmModule.forFeature([RepositoryEntity])],
+  imports: [GithubModule, QueueModule],
   providers: [RepositoryDiscoveryOrchestrator],
   controllers: [ManualController],
 })
