@@ -1,5 +1,9 @@
 # MCP Marketplace
 
+## dynamic search and chuncking Algorithm
+
+![sixth](https://github.com/user-attachments/assets/3c8e90cf-3ca7-45c7-b971-fa86cd673fe5)
+
 ## learnings from v0 system
 
 ![v1understanding](https://github.com/user-attachments/assets/f3c68080-dbb0-4005-aa71-fc51c0d4e6cc)
